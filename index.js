@@ -64,8 +64,8 @@ app.post('/login', async (req,res) => {
       res.status(400).json('wrong credentials');
     }
   }catch(err){
-    console.log(e);
-    res.status(400).json(e);
+    console.log(err);
+    res.status(400).json(err);
   }
 });
 
@@ -86,8 +86,8 @@ app.post('/logout', (req,res) => {
   try{
     res.cookie('token', '').json('ok');
   }catch(err){
-    console.log(e);
-    res.status(400).json(e);
+    console.log(err);
+    res.status(400).json(err);
   }
 });
 
@@ -114,8 +114,8 @@ app.post('/post', uploadMiddleware.single('file'), async (req,res) => {
       res.json(postDoc);
     });
   }catch(err){
-    console.log(e);
-    res.status(400).json(e);
+    console.log(err);
+    res.status(400).json(err);
   }
 });
 
@@ -151,8 +151,8 @@ app.put('/post',uploadMiddleware.single('file'), async (req,res) => {
       res.json(postDoc);
     });
   }catch(err){
-    console.log(e);
-    res.status(400).json(e);
+    console.log(err);
+    res.status(400).json(err);
   }
 });
 
@@ -165,8 +165,8 @@ app.get('/post', async (req,res) => {
         .limit(20)
     );
   }catch(err){
-    console.log(e);
-    res.status(400).json(e);
+    console.log(err);
+    res.status(400).json(err);
   }
 });
 
@@ -176,8 +176,8 @@ app.get('/post/:id', async (req, res) => {
     const postDoc = await Post.findById(id).populate('author', ['username']);
     res.json(postDoc);
   }catch(err){
-    console.log(e);
-    res.status(400).json(e);
+    console.log(err);
+    res.status(400).json(err);
   }
 })
 
