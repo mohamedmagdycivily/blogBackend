@@ -14,7 +14,8 @@ const fs = require('fs');
 const salt = bcrypt.genSaltSync(10);
 const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 
-app.use(cors({credentials:true,origin:'*'}));
+app.use(cors({credentials:true,origin:'http://blog-magdy.s3-website-eu-west-1.amazonaws.com'}));
+// app.use(cors({credentials:true,origin:'*'}));
 // app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 // app.use(cors({credentials:true,origin:'http://localhost:3001'}));
 
